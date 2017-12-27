@@ -9,10 +9,6 @@ class ZomekiLogin::Content::User < Cms::Content
 
   has_many :users, foreign_key: :content_id, class_name: 'ZomekiLogin::User', dependent: :destroy
 
-  def token_key
-    "user_remember_token_#{self.id}"
-  end
-
   def redirect_url
     setting_value(:redirect_url)
   end
