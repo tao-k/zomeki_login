@@ -1,0 +1,12 @@
+<table class="show">
+  <tr>
+    <th><%= @item.locale(:state) %></th>
+    <td><%= @item.status.name %></td>
+  </tr><tr>
+    <th><%= @item.locale(:account) %></th>
+    <td><%= @item.account %></td>
+  </tr><tr>
+    <th><%= @item.locale(:password) %></th>
+    <td><%= @item.password %></td>
+  </tr>
+</table>

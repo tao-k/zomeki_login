@@ -1,0 +1,2 @@
+module ZomekiLogin::SessionHelper
+end
