@@ -10,7 +10,7 @@ class ZomekiLogin::Public::Node::UsersController < Cms::Controller::Public::Base
   def login
     return unless request.post?
     if user = authenticate(params[:account], params[:password], @content)
-      sing_in(@content, user)
+      sign_in(@content, user)
       return redirect_to @content.redirect_url
     else
       flash[:notice] = "ログインに失敗しました。ユーザーIDとパスワードを確認してください。"
@@ -20,7 +20,7 @@ class ZomekiLogin::Public::Node::UsersController < Cms::Controller::Public::Base
 
   def logout
     if user = login_user(@content)
-      sing_out(@content, user)
+      sign_out(@content, user)
     else
       flash[:notice] = "ログインしてください。"
     end
