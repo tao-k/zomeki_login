@@ -1,6 +1,6 @@
 class CreateZomekiLoginUsers < ActiveRecord::Migration[5.0]
   def change
-    create_table :zomeki_login_users do |t|
+    create_table :login_users do |t|
       t.integer :content_id
       t.string :state
       t.string :account

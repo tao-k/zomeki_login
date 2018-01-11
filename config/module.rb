@@ -1,4 +1,4 @@
-Cms::Lib::Modules::ModuleSet.draw :zomeki_login, 'ログイン情報：プラグイン', 999 do |mod|
+Cms::Lib::Modules::ModuleSet.draw :login, 'ログイン情報：プラグイン', 999 do |mod|
 #  ## contents
   mod.content :users, 'ログイン情報：プラグイン'
 

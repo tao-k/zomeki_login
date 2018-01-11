@@ -10,7 +10,7 @@ module ZomekiLogin::Auth::Base
   def login_user(content)
     return nil if cookies[ACCOUNT_KEY].blank? || cookies[TOKEN_KEY].blank?
     content.users
-      .where(ZomekiLogin::User.arel_table[:remember_token].not_eq(nil))
+      .where(Login::User.arel_table[:remember_token].not_eq(nil))
       .where(account: cookies[ACCOUNT_KEY])
       .where(remember_token: cookies[TOKEN_KEY]).first
   end

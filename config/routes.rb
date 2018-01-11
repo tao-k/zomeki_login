@@ -1,4 +1,4 @@
-mod = "zomeki_login"
+mod = "login"
 ZomekiCMS::Application.routes.draw do
   ## admin
   scope "#{ZomekiCMS::ADMIN_URL_PREFIX}/#{mod}/c:concept", :module => mod, :as => mod do
@@ -36,9 +36,3 @@ end
 ZomekiLogin::Engine.routes.draw do
   root "#{mod}/contents#index"
 end
-
-
-ZomekiLogin::Engine.routes.draw do
-  root "#{mod}/contents#index"
-end
-

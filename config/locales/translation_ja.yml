@@ -1,9 +1,9 @@
 ja:
   activerecord:
     models:
-      zomeki_login/user: ユーザー
+      login/user: ユーザー
     attributes:
-      zomeki_login/user:
+      login/user:
         account: ID
         password: パスワード
         password_confirm: パスワード（確認）

@@ -1,4 +1,4 @@
-# ZomekiLogin
+# Login
 Short description and motivation.
 
 ## Usage
