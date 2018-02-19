@@ -1,8 +1,8 @@
 class Login::User < ApplicationRecord
   include Sys::Model::Base
-  include Sys::Model::Base::Config
   include Sys::Model::Auth::Manager
-  include StateText
+
+  enum_ish :state, [:enabled, :disabled], predicate: true
 
   # Content
   belongs_to :content, :foreign_key => :content_id, :class_name => 'Login::Content::User'

@@ -9,8 +9,8 @@
   <tr class="<%= cycle '', 'cycle' %>">
     <td style="text-align: center;"><%= link_to :show, { action: :show, id: item } %></td>
     <td><%= item.account %></td>
-    <td><%= item.status.name %></td>
-    <td><%=i18n_l item.updated_at %></td>
+    <td><%= item.state_text %></td>
+    <td><%= l item.updated_at %></td>
   </tr>
   <%- end -%>
 </table>
