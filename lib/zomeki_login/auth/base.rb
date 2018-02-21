@@ -7,14 +7,6 @@ module ZomekiLogin::Auth::Base
     content.users.where(state: 'enabled', account: account, password: password).first
   end
 
-  def login_user(content)
-    return nil if cookies[ACCOUNT_KEY].blank? || cookies[TOKEN_KEY].blank?
-    content.users
-      .where(Login::User.arel_table[:remember_token].not_eq(nil))
-      .where(account: cookies[ACCOUNT_KEY])
-      .where(remember_token: cookies[TOKEN_KEY]).first
-  end
-
   def sign_in(content, user)
     remember_token = user.new_remember_token(2.weeks.from_now.utc)
     cookies[ACCOUNT_KEY] = {value: user.account, expires: 90.day.from_now }

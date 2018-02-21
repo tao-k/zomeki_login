@@ -19,7 +19,7 @@ class Login::Public::Node::UsersController < Cms::Controller::Public::Base
   end
 
   def logout
-    if user = login_user(@content)
+    if user = @content.login_user
       sign_out(@content, user)
     else
       flash[:notice] = "ログインしてください。"

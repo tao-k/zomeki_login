@@ -7,7 +7,7 @@ class Login::Public::Piece::UsersController < Sys::Controller::Public::Base
   end
 
   def index
-    @login_user = login_user(@content)
+    @login_user = @content.login_user
     @node = @content.public_node
     if @node
       @login_uri = "#{@node.public_uri}login"
