@@ -8,10 +8,15 @@ module ZomekiLogin::Auth::Base
   end
 
   def sign_in(content, user)
+    if cookies[ACCOUNT_KEY] && cookies[TOKEN_KEY]
+      Login::User.where(account: cookies[ACCOUNT_KEY], remember_token: cookies[TOKEN_KEY])
+        .update_all(remember_token: nil, remember_token_expires_at: nil)
+    end
     remember_token = user.new_remember_token(2.weeks.from_now.utc)
     cookies[ACCOUNT_KEY] = {value: user.account, expires: 90.day.from_now }
     cookies[TOKEN_KEY] = {value: remember_token, expires: 90.day.from_now }
-    user.update_columns(remember_token: remember_token)
+    user.update_columns(remember_token: remember_token,
+      remember_token_expires_at: 90.day.from_now)
   end
 
   def sign_out(content, user)

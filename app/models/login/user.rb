@@ -13,7 +13,7 @@ class Login::User < ApplicationRecord
   end
 
   def new_remember_token(expires)
-    Util::String::Crypt.encrypt("#{account}--#{expires}")
+    Util::String::Crypt.encrypt("#{content_id}-#{account}--#{expires}")
   end
 
 end

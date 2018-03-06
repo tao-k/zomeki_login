@@ -17,8 +17,10 @@ class Login::Content::User < Cms::Content
     account = Core.get_cookie('login_account')
     token   = Core.get_cookie('user_remember_token')
     return nil if account.blank? || token.blank?
+    user_table = Login::User.arel_table
     self.users
-      .where(Login::User.arel_table[:remember_token].not_eq(nil))
+      .where(user_table[:remember_token_expires_at].gteq(Time.now))
+      .where(user_table[:remember_token].not_eq(nil))
       .where(account: account)
       .where(remember_token: token).first
   end
